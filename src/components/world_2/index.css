@@ -1,0 +1,124 @@
+.page-2 {
+  background-image: url("./../../data/images/3.jpeg");
+  background-size: cover;
+  overflow-x: hidden;
+}
+.shadow {
+  text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.7);
+}
+.overlay-2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  animation: bg-fade 4s linear infinite;
+}
+
+.overlay-3 {
+  position: absolute;
+  right: 0;
+  width: 45%;
+  height: 100%;
+  background-color: rgba(170, 0, 1, 0.4);
+  clip-path: polygon(
+    50% 0%,
+    99.4% 1%,
+    99.8% 44.8%,
+    99.8% 100%,
+    50.9% 99.8%,
+    27.2% 84.5%,
+    15.7% 46.8%,
+    15.8% 45.8%,
+    26.9% 12%
+  );
+  /* transform: translateX(100%); */
+  animation: slide 4sec linear infinite;
+  transition: slide 4sec ease;
+  animation-timeline: view();
+  animation-range: start -100px;
+}
+.rain {
+  background-image: url("./../../data/images/rain.png");
+  animation: rain 0.5s linear infinite;
+}
+.rain::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("./../../data/images/lightining.png");
+  top: -100px;
+  transform: rotate(180deg);
+  animation: lightning 4s linear infinite;
+  opacity: 1;
+}
+@keyframes rain {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: -20% 100%;
+  }
+}
+
+@keyframes lightning {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  21% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  31% {
+    opacity: 1;
+  }
+  35% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes bg-fade {
+  0% {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  20% {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  21% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  25% {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  30% {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  31% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  35% {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+@keyframes slide {
+  0% {
+    translatex: 0%;
+  }
+  100% {
+    translatex: 100%;
+  }
+}
