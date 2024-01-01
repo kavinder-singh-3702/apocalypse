@@ -13,10 +13,9 @@
 .moon:hover {
   animation-play-state: paused;
 }
-/* .page-1 {
-  animation: first-page linear forwards;
-  animation-timeline: view();
-} */
+.moon.scaled {
+  transform: scale(0.9);
+}
 .hide {
   display: none;
 }
