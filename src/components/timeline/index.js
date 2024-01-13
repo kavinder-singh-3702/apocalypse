@@ -1,8 +1,32 @@
 // Timeline.js
+import { useState, useEffect } from "react";
 import React from "react";
 import "./index.css"; // Import your CSS file
+import { motion } from "framer-motion";
 
 const Timeline = () => {
+  const [scrollHeight, setScrollHeight] = useState(0);
+  const [percentageScrolled, setPercentageScrolled] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const maxScroll = documentHeight - windowHeight;
+
+      const percentage = (scrollPosition / maxScroll) * 100;
+      setScrollHeight(scrollPosition);
+      setPercentageScrolled(percentage);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const rowItems = [
     {
       title: "First Meetup",
@@ -51,11 +75,14 @@ const Timeline = () => {
   return (
     <div className="">
       <div className="wrapper relative w-screen h-screen">
-        <div className="center-line">
-          <a href="#" className="scroll-icon">
-            <div icon="caret-up" />
-          </a>
-        </div>
+        <motion.div
+          className="center-line"
+          style={{ height: `${percentageScrolled}%` }}
+          whileInView={{ height: "less than 100%" }}
+          transition={{ duration: 8 }}
+        >
+          {/* */}
+        </motion.div>
         {/* row 1 */}
         {rowItems.map((item, index) => (
           <div className={`row ${index + 1}`}>
@@ -66,9 +93,7 @@ const Timeline = () => {
                 <span>{item.date}</span>
               </div>
               <p>{item.content}</p>
-              <div className="bottom">
-                <a href="#">Read more</a>
-              </div>
+              <div className="bottom"></div>
             </section>
           </div>
         ))}
