@@ -7,15 +7,15 @@
   }
 }
 .moon {
+  transition: all 1s;
   animation: rotate360 40s linear infinite;
+  filter: drop-shadow(7px 2px 5px rgba(0, 0, 0, 1));
 }
 
 .moon:hover {
   animation-play-state: paused;
 }
-.moon.scaled {
-  transform: scale(0.9);
-}
+
 .hide {
   display: none;
 }
@@ -35,7 +35,7 @@
 }
 
 .shadow {
-  text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.7);
+  text-shadow: 6px 6px 12px rgba(0, 0, 0, 0.7);
 }
 
 @keyframes first-page {

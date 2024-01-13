@@ -29,8 +29,8 @@ export default function index() {
         </p>
       </div>
 
-      <div className="z-2 absolute z-[1] top-[19.5vh] left-[8vw]">
-        <p className="text-[5vw] shadow text-[#D3D3D3] font-broken font-bold">
+      <div className="absolute z-[1] top-[19.5vh] left-[8vw]">
+        <p className="text-[5vw] shadow text-[#D3D3D3] font-broken z-[3] font-bold">
           This is a special
         </p>
         <p className="text-[8vw] shadow absolute text-[#A4161A] top-[9.5vh] font-nosifier">
