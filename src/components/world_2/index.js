@@ -44,7 +44,7 @@ export default function index() {
       <AnimatePresence>
         <motion.div
           className="absolute z-10 top-[5vh] left-[3vw]"
-          initial={{ y: 300, opacity: 0, scale: 0.5, rotate: 10 }}
+          initial={{ y: 400, opacity: 0, scale: 0.5, rotate: 10 }}
           whileInView={{ y: 0, opacity: 1, scale: 1, rotate: 0 }}
           transition={{ duration: 1 }}
         >
@@ -71,7 +71,7 @@ export default function index() {
             }}
             transition={{
               duration: 0.5,
-              delay: 3,
+              delay: 2,
               loop: Infinity,
             }}
           >
