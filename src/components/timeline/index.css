@@ -8,9 +8,25 @@
 html {
   scroll-behavior: smooth;
 }
-body {
-  background: rgb(0, 0, 0, 0.5);
+
+.bg {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background: url("../../data/images/eyes.jpeg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  animation: animateBg 5s linear infinite;
 }
+@keyframes animateBg {
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
 ::selection {
   color: #fff;
   background: #ff7979;
@@ -25,7 +41,7 @@ body {
   position: absolute;
   height: 150%;
   width: 4px;
-  background: #a4161a;
+  background: white;
   left: 50%;
   top: 20px;
   transform: translateX(-50%);
@@ -51,18 +67,18 @@ body {
   justify-content: flex-end;
 }
 .wrapper .row section {
-  background: #fff;
+  background: #ff7979;
   border-radius: 5px;
   width: calc(50% - 40px);
   padding: 20px;
   position: relative;
 }
 .wrapper .row section::before {
-  position: absolute;
+  position: relative;
   content: "";
   height: 15px;
   width: 15px;
-  background: #fff;
+  background: #ff7979;
   top: 28px;
   z-index: -1;
   transform: rotate(45deg);

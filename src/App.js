@@ -7,10 +7,14 @@ import Timeline from "./components/timeline";
 
 function App() {
   return (
-    <div className="website">
+    <div className="website bg-black">
       <World />
-      {/* <World_2 /> */}
-      <Timeline />
+
+      <World_2 />
+
+      {/* <Timeline /> */}
+
+      {/* <Bg /> */}
     </div>
   );
 }

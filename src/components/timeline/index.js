@@ -10,7 +10,7 @@ const Timeline = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
+      const scrollPosition = window.scrollY - 120;
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
       const maxScroll = documentHeight - windowHeight;
@@ -73,19 +73,25 @@ const Timeline = () => {
     // Add more rows as needed
   ];
   return (
-    <div className="">
+    <div className="bg h-screen w-screen">
       <div className="wrapper relative w-screen h-screen">
         <motion.div
           className="center-line"
           style={{ height: `${percentageScrolled}%` }}
-          whileInView={{ height: "less than 100%" }}
+          whileInView={{ height: percentageScrolled < 150 }}
           transition={{ duration: 8 }}
         >
           {/* */}
         </motion.div>
         {/* row 1 */}
         {rowItems.map((item, index) => (
-          <div className={`row ${index + 1}`}>
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2 * index }}
+            className={`row ${index + 1}`}
+          >
             <section>
               <div className="icon" />
               <div className="details">
@@ -95,7 +101,7 @@ const Timeline = () => {
               <p>{item.content}</p>
               <div className="bottom"></div>
             </section>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
